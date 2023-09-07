@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- ================================
+Start SEO blocks
+================================= -->
+{% block title %}{% endblock %}
+{% block decription %}{% endblock %}
+{% block keywords %}{% endblock %}
+<!-- ================================
+END SEO blocks
+================================= -->
+
+<!-- ================================
+Start CSS blocks
+================================= -->
+{% block extend_header %}{% endblock %}
+<!-- ================================
+END CSS blocks
+================================= -->
+
+<!-- ================================
+Start script blocks
+================================= -->
+{% block extend_footer %}{% endblock %}
+<!-- ================================
+END script blocks
+================================= -->
+
+<!-- ================================
+Start Content
+================================= -->
+{% block content %}
+<section>
+  <div class="bannerSection">
+    <div class="container">
+      <div class="row g-4 g-md-3  align-items-center">
+        <div class="col-md-auto order-md-last">
+          <div class="bannerUserImg">
+            <img src="{{me.userprofile.avatar.url}}" alt="{{me.first_name|title}} {{me.last_name|title}} avatar">
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="bannerContent">
+            <h1 class="xlTitle pb-3">Hola, Soy {{me.first_name|title}} <br> un {{me.userprofile.title}} </br></h1>
+            <p>{{me.userprofile.bio}}</p>
+            <br>
+            <h4 class="smTitle pb-3">Educacion</h4>
+            <ul>
+              
+              {% for item in education_items %}
+              <li>
+                <strong>{{item.educational_institution}}</strong>
+                <li>{{item.qualification}}, {{item.career}}</li>
+                <li>{{item.start_date}} - En curso</li>
+                <li>{{item.author}}</li>
+              </li>
+              
+              {% endfor %}
+            </ul>
+              <br>
+            <h4 class="smTitle pb-3">Experiencia Laboral</h4>
+            <br>
+            
+            <div class="bannerBtnCol">
+              <div class="row">
+                <div class="col-auto">
+                  <a download href="" class="btn btnPrimary">Download Resume</a>
+                </div>
+                <div class="col-auto">
+                  <a href="" class="btn btnOutline">Contact</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sectionSpace pt-0">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-auto">
+          <div class="keySkillCol">
+            <h4 class="smTitle pb-3">Key Skills</h4>
+            {% for sk in me.userprofile.skills.all %}
+            {% if sk.is_key_skill %}
+            <div class="keySkillCard">
+              {% if sk.image %}
+              <div class="ksIconCol">
+                <img src="{{sk.image.url}}" alt="...">
+              </div>
+              {% endif %}
+              <span class="ksText">{{sk.name}}</span>
+            </div>
+            {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+        <div class="col-md">
+          <h4 class="smTitle pb-3">Coding Skills</h4>
+          <div class="progressCol">
+            <div class="progressCard">
+              {% for sk in me.userprofile.skills.all %}
+              {% if not sk.is_key_skill %}
+              <div class="progressCol">
+                <span class="progressLbl">{{sk.name}}</span>
+                <div class="row g-2 align-items-center">
+                  <div class="col">
+                    <div class="progress progressStyle">
+                      <div class="progress-bar" role="progressbar" style="width: {{sk.score}}%" aria-valuenow="{{sk.score}}" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </div>
+                  <div class="col-auto">
+                    <span class="pLbl">{{sk.score}}%</span>
+                  </div>
+                </div>
+              </div>
+              {% endif %}
+              {% endfor %}
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+<!-- ================================
+End Content
+================================= -->
