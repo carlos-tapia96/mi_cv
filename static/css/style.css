@@ -31,6 +31,15 @@ ul {
 img {
   max-width: 100%;
 }
+.keySkillCard img{
+  max-width: 30%;
+}
+.keySkillCardTec img{
+  max-width: 50%;
+}
+.TecIcon img{
+  max-width: 30%;
+}
 a {
   color: inherit;
 }
@@ -359,9 +368,8 @@ a, .btn {
 .dateLbl {
 	display: inline-block;
 	padding: 4px 12px;
-	background-color: #142850;
 	border-radius: 20px;
-	color: #fff;
+	color: black;
 	font-size: 18px;
 	line-height: 1;
 	font-weight: var(--bold);
@@ -396,8 +404,8 @@ a, .btn {
 }
 .portfolioImgCol img {
   border-radius: 6px;
-  width: 246px;
-  height: 184px;
+  width: 350px;
+  height: auto;
   -o-object-fit: cover;
   object-fit: cover;
 }
@@ -415,8 +423,8 @@ a, .btn {
   margin-bottom: 0;
 }
 .tImgCol {
-	width: 95px;
-	height: 95px;
+	width: 200px;
+	height: 150px;
 	margin-right: 5px;
 	border-radius: 50%;
 }

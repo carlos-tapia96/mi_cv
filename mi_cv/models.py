@@ -87,11 +87,11 @@ class Certificate(models.Model):
     class Meta:
         verbose_name_plural = 'Certificates'
         verbose_name = "Certificate"
+        ordering = ["date"]
     
-    name = models.CharField(max_length=50,  blank=True, null=True)
-    company = models.CharField(max_length=30,  blank=True, null=True)
-    date = models.DateTimeField(blank=True, null=True)
-    url_credential = models.URLField(blank=True, null=True)
+    name = models.CharField(max_length=60, blank=True, null=True)
+    company = models.CharField(max_length=80,  blank=True, null=True)
+    date = models.DateField(blank=True, null=True)
     description = models.CharField(max_length=500, blank=True, null=True)
     image = models.ImageField(blank=True, null=True, upload_to="certificate")
     is_active = models.BooleanField(default=True)

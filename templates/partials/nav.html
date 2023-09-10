@@ -18,10 +18,9 @@ Start Navigation Bar
             <div class="navCollapseCol">
             <div class="navCol">
                 <ul>
-                <li><a href="{%url 'main:home'%}">Inicio</a></li>
-                <li><a href="">Certificados</a></li>
-                <li><a href="">Portfolio</a></li>
-                <li><a href="">Blog</a></li>
+                <li><a href="{% url 'main:home'%}">Inicio</a></li>
+                <li><a href="{% url 'app_portfolio:portfolios' %}">Portfolio</a></li>
+                <li><a href="{% url 'app_blog:blogs' %}">Blog</a></li>
                 <li><a href="">Contacto</a></li>
                 </ul>
             </div>

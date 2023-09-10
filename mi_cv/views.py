@@ -3,7 +3,8 @@ from django.views import generic
 from .models import (
     UserProfile,
     Certificate,
-    Education
+    Education,
+    WorkExperience
 )
 
 from portfolio.models import Portfolio
@@ -18,13 +19,14 @@ class IndexView(generic.TemplateView):
         certificate_items = Certificate.objects.filter(is_active=True)
         portfolio_items = Portfolio.objects.filter(is_active=True)
         education_items = Education.objects.all()
+        workExperience_items = WorkExperience.objects.all()
 
         context["certificate_items"] = certificate_items
         context["portfolio_items"] = portfolio_items
-        context = {'education_items':education_items}
-        
+        context["education_items"] = education_items
+
         return context
-        
+
 
 
 

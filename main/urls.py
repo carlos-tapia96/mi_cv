@@ -25,6 +25,8 @@ app_name = "main"
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('mi_cv.urls', namespace="main")),
+    path('', include('portfolio.urls', namespace="app_portfolio")),
+    path('', include('blog.urls', namespace="app_blog")),
     re_path(r'^media/(?P<path>.*)$', serve,
             {'document_root': settings.MEDIA_ROOT}),
     re_path(r'^static/(?P<path>.*)$', serve,

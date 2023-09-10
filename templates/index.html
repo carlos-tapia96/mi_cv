@@ -44,24 +44,8 @@ Start Content
           <div class="bannerContent">
             <h1 class="xlTitle pb-3">Hola, Soy {{me.first_name|title}} <br> un {{me.userprofile.title}} </br></h1>
             <p>{{me.userprofile.bio}}</p>
-            <br>
-            <h4 class="smTitle pb-3">Educacion</h4>
-            <ul>
-              
-              {% for item in education_items %}
-              <li>
-                <strong>{{item.educational_institution}}</strong>
-                <li>{{item.qualification}}, {{item.career}}</li>
-                <li>{{item.start_date}} - En curso</li>
-                <li>{{item.author}}</li>
-              </li>
-              
-              {% endfor %}
-            </ul>
-              <br>
-            <h4 class="smTitle pb-3">Experiencia Laboral</h4>
-            <br>
             
+
             <div class="bannerBtnCol">
               <div class="row">
                 <div class="col-auto">
@@ -79,52 +63,170 @@ Start Content
   </div>
 </section>
 
+
 <section>
   <div class="sectionSpace pt-0">
     <div class="container">
       <div class="row">
+        <div class="col-md">
+          <h4 class="smTitle pb-3">Formación Académica</h4>
+          <div class="progressCol">
+            <div class="progressCard">
+              <div class="swiper-slide">
+                <div class="testimonialCard">
+                  <div class="row align-items-center">
+                    <div class="col-sm-auto">
+                      {% for item in education_items %}
+                      <div class="tImgCol">
+                        <img src="{{item.image.url}}" alt="...">
+                      </div>
+                    </div>
+                    <div class="col-sm">
+                      <ul>
+                      
+                      <strong>{{item.educational_institution}}</strong>
+                      <li>{{item.qualification}}, {{item.career}}</li>
+                      <li>{{item.start_date}} - En curso</li>
+                      {% endfor %}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section>
+  <div class="sectionSpace pt-0 lightBg">
+    <div class="container">
+      <div class="row">
+        
         <div class="col-md-auto">
           <div class="keySkillCol">
-            <h4 class="smTitle pb-3">Key Skills</h4>
-            {% for sk in me.userprofile.skills.all %}
-            {% if sk.is_key_skill %}
+            <br>
+            <h4 class="smTitle pb-3">Aptitudes</h4>
+            {% for ap in me.userprofile.skills.all %}
+            {% if ap.is_key_skill %}
             <div class="keySkillCard">
-              {% if sk.image %}
+              {% if ap.image %}
               <div class="ksIconCol">
-                <img src="{{sk.image.url}}" alt="...">
+                <img src="{{ap.image.url}}" alt="...">
               </div>
               {% endif %}
-              <span class="ksText">{{sk.name}}</span>
+              <p class="ksText">{{ap.name}}</p>
             </div>
             {% endif %}
             {% endfor %}
           </div>
         </div>
         <div class="col-md">
-          <h4 class="smTitle pb-3">Coding Skills</h4>
-          <div class="progressCol">
-            <div class="progressCard">
-              {% for sk in me.userprofile.skills.all %}
-              {% if not sk.is_key_skill %}
-              <div class="progressCol">
-                <span class="progressLbl">{{sk.name}}</span>
-                <div class="row g-2 align-items-center">
-                  <div class="col">
-                    <div class="progress progressStyle">
-                      <div class="progress-bar" role="progressbar" style="width: {{sk.score}}%" aria-valuenow="{{sk.score}}" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
+          <div class="">
+            <br>
+            <h4 class="smTitle pb-3">Tecnologias</h4>
+            <div class="row">
+            {% for tec in me.userprofile.skills.all %}
+            {% if not tec.is_key_skill %}
+              <div class="col-md-3">
+                <div class="keySkillCard">
+                  {% if tec.image %}
+                  <div class="TecIcon">
+                    <img src="{{tec.image.url}}" alt="...">
                   </div>
-                  <div class="col-auto">
-                    <span class="pLbl">{{sk.score}}%</span>
-                  </div>
+                  {% endif %}
+                  <p class="ksText">{{tec.name}}</p>
                 </div>
               </div>
-              {% endif %}
-              {% endfor %}
-              
+            {% endif %}
+            {% endfor %}
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section>
+  <div class="sectionSpaceSm">
+    <div class="container">
+      <div class="row pb-3">
+        <div class="col">
+          <h4 class="smTitle pb-3">Certificados</h4>
+        </div>
+
+      </div>
+      <div class="sliderOuter">
+        <div class="swiper certificatesSlider">
+          <div class="swiper-wrapper">
+            {% for c in certificate_items %}
+            {% if c.image %}
+            <div class="swiper-slide">
+              <div class="cardStyle1">
+                <h4 class="mdTitle cs1Title">
+                  <a href="javascript:void(0)">{{c.title}}</a>
+                </h4>
+                <ul class="cardOptionCol">
+                  <a href=""><img src="{{c.image.url}}" alt="..."></a>
+                </ul>
+              </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+            
+          </div>
+        </div>            
+        <div class="cert-swiper-button-next swiper-button-next swiperBtnStyle"></div>
+        <div class="cert-swiper-button-prev swiper-button-prev swiperBtnStyle"></div>
+        <div class="swiper-pagination swiperPaginationStyle posInitial"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section>
+  <div class="sectionSpace lightBg">
+    <div class="container">
+      <div class="portfolioCol">
+        <div class="row pb-3">
+          <div class="col">
+            <h4 class="smTitle pb-3">Portfolio</h4>
+          </div>
+          <div class="col-auto">
+            <a href="" class="simpleLink">Ver Todo</a>
+          </div>
+        </div>
+        {% for p in portfolio_items %}
+        {% if p.is_active %}
+        <div class="portfolioCard">
+          <div class="row g-4 align-items-center">
+            <div class="col-md-auto">
+              <div class="portfolioImgCol">
+                <a href=""><img src="{{p.image.url}}" alt="..."></a>
+              </div>
+            </div>
+            <div class="col-md">
+              <div class="portfolioContentCol">
+                <h4 class="lgTitle"><a href="">{{p.name}}</a></h4>
+                <ul class="portfolioOption">
+                  <li><span class="dateLbl">{{p.date}}</span></li>
+                </ul>
+                <p>{{p.description}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+        
       </div>
     </div>
   </div>
@@ -142,9 +244,9 @@ Start Content
 
 
 
-
-
 {% endblock %}
 <!-- ================================
 End Content
 ================================= -->
+
+

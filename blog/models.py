@@ -1,6 +1,6 @@
 from django.db import models
 from ckeditor.fields import RichTextField
-
+from django.template.defaultfilters import slugify
 
 # Create your models here.
 class Blog(models.Model):
