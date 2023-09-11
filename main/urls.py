@@ -27,6 +27,7 @@ urlpatterns = [
     path('', include('mi_cv.urls', namespace="main")),
     path('', include('portfolio.urls', namespace="app_portfolio")),
     path('', include('blog.urls', namespace="app_blog")),
+    path('', include('contact.urls', namespace="app_contact")),
     re_path(r'^media/(?P<path>.*)$', serve,
             {'document_root': settings.MEDIA_ROOT}),
     re_path(r'^static/(?P<path>.*)$', serve,
