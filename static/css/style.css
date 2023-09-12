@@ -2,7 +2,7 @@
 /* font-family: 'Courier Prime', monospace;
 font-family: 'Heebo', sans-serif; */
 :root {
-  --primaryColor: #9C07B6;
+  --primaryColor: #a45785;
   --primaryDarkColor: #3D0048;
   --primaryHoverColor: #900AA8;
   --secondaryColor: #F9B000;
@@ -30,6 +30,9 @@ ul {
 }
 img {
   max-width: 100%;
+}
+img .imglogo{
+  max-width: 10%;
 }
 .keySkillCard img{
   max-width: 30%;
@@ -115,7 +118,7 @@ a, .btn {
   font-family: var(--titleFont)
 }
 .smTitle {
-  font-size: 22px;
+  font-size: 32px;
   line-height: normal;
   font-weight: var(--regular);
   font-family: var(--titleFont)
@@ -172,7 +175,7 @@ a, .btn {
   display: inline-block;
   position: relative;
 }
-.navCol a:hover {
+. a:hover {
   color: var(--primaryColor);
 }
 .navCol a::before {
@@ -494,7 +497,7 @@ body.navToggleActive {
 
 /* portfolio page */
 .innerPageBannerCol {
-	padding: 180px 0 150px;
+	padding: 150px 0 30px;
 }
 .portfolioContentMain {
   position: relative;
@@ -561,7 +564,7 @@ body.navToggleActive {
   	padding: 30px 0;
   }
   .innerPageBannerCol {
-  	padding: 150px 0 100px;
+  	padding: 150px 0 30px;
   }
 }
 
@@ -593,7 +596,7 @@ body.navToggleActive {
   	padding-top: 10px;
   }
   .smTitle {
-  	font-size: 18px;
+  	font-size: 38px;
   }
   .keySkillCard + .keySkillCard {
   	padding-top: 20px;
@@ -606,7 +609,7 @@ body.navToggleActive {
   }
 
   .innerPageBannerCol{
-  	padding: 120px 0 50px;
+  	padding: 200px 20px 30px;
   }
   .portfolioRow .pColMain:nth-child(2n-1) .pCol {
   	margin-top: -70px;
@@ -713,7 +716,7 @@ body.navToggleActive {
     opacity: 0.8;
   }
   .logoCol img {
-  	width: 50px;
+  	width: 100px;
   }
   .fixedHeader .headerCol,  .headerCol {
   	padding: 10px 0;
